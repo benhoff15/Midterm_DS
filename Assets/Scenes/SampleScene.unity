@@ -1223,6 +1223,7 @@ MonoBehaviour:
   - {fileID: 1906863857}
   duckPrefab: {fileID: 438575084088860432, guid: 634a991c19c50ce418d1b45e18d069fa, type: 3}
   blueColor: {r: 0, g: 0, b: 0, a: 0}
+  electronicHighwayFont: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
   dogMiss: {fileID: 0}
   dogHit: {fileID: 0}
   dogSprite: {fileID: 0}

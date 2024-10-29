@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject duckPrefab;
     //public SpriteRenderer bg;
     public Color blueColor;
+    public Font electronicHighwayFont;
 
     public GameObject dogMiss, dogHit;
     public SpriteRenderer dogSprite;
@@ -29,15 +31,24 @@ public class GameManager : MonoBehaviour
     public GameObject bombPrefab;
     private float bombSpawnChance = 0.05f;
 
+    private float roundDuration = 60f;
+    private float timeRemaining;
+    private bool roundActive = false;
+
 
     void Start()
     {
+        StartRound();
         Instance = this;
         StartCoroutine(RunRound());
     }
 
     void Update()
     {
+        if (roundActive)
+        {
+            UpdateTimer();
+        }
         if (Input.GetMouseButtonDown(0))
             totalClicks++;
 
@@ -61,6 +72,48 @@ public class GameManager : MonoBehaviour
         // End of round actions (if needed)
         isRoundOver = true;
         Debug.Log("Round Over");
+    }
+    private void StartRound()
+    {
+        timeRemaining = roundDuration;
+        roundActive = true;
+    }
+    private void UpdateTimer()
+    {
+        // Decrease the remaining time
+        timeRemaining -= Time.deltaTime;
+
+        // End the round if time is up
+        if (timeRemaining <= 0)
+        {
+            timeRemaining = 0;
+            EndRound();
+        }
+    }
+    void OnGUI()
+    {
+        if (roundActive)
+        {
+            // Set the depth to control the order in layer
+            GUI.depth = 5;
+
+            // Define the style for the timer text
+            GUIStyle timerStyle = new GUIStyle();
+            timerStyle.fontSize = 22; // Adjust size as needed
+            timerStyle.normal.textColor = Color.white; // Adjust color as needed
+
+            if (electronicHighwayFont != null)
+            {
+                timerStyle.font = electronicHighwayFont;
+            }
+
+            // Calculate the approximate position for the middle bar (you may need to adjust these values)
+            float xPosition = Screen.width / 2 - 145; // Centered horizontally, with a width offset for text
+            float yPosition = Screen.height - 44; // Adjust to place the text in the middle bar vertically
+
+            // Display the time remaining on the screen in the middle bar
+            GUI.Label(new Rect(xPosition, yPosition, 200, 50), "Time Remaining: " + Mathf.Ceil(timeRemaining).ToString(), timerStyle);
+        }
     }
     public void CallCreateDucks()
     {
@@ -169,4 +222,11 @@ public class GameManager : MonoBehaviour
         CallCreateDucks();
         isRoundOver = false;
     }
+    private void EndRound()
+    {
+        roundActive = false;
+        // Handle end-of-round logic (e.g., show results, reset for the next round)
+        Debug.Log("Round over!");
+    }
+
 }

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e991ef6144f06fc42b560a025a1b67bf
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - duckPrefab: {fileID: 438575084088860432, guid: 634a991c19c50ce418d1b45e18d069fa, type: 3}
+  - dogMiss: {instanceID: 0}
+  - dogHit: {instanceID: 0}
+  - dogSprite: {instanceID: 0}
+  - roundText: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - hitsText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

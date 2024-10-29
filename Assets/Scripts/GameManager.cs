@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Hit()
     {
-        //totalClicks++;
+        totalHits++;
         score += 10;
         hits++;
         //bg.color = Color.white;

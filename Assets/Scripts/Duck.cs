@@ -72,10 +72,12 @@ public void Timeup()
 
     IEnumerator Dead()
     {
+        GameManager.Instance.HitDuck();
         isDead = true;
         anim.SetTrigger("Die");
         yield return new WaitForSeconds(0.4f);
         isStartFalling = true;
+        Destroy(gameObject, 3f);
     }
     
     public void UpdateSprite()
@@ -102,6 +104,12 @@ public void Timeup()
             anim.SetInteger("Fly", 1);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        SetTarget();
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, target);

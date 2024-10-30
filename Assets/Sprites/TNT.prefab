@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8108554529099604748}
   - component: {fileID: 1123908074189108264}
   - component: {fileID: 6812118615409059301}
+  - component: {fileID: 3094799213740751262}
   m_Layer: 0
   m_Name: TNT
   m_TagString: Untagged
@@ -152,3 +153,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3094799213740751262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995752668254262522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2019ca5db4b4694a9c2af2eb3560be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10

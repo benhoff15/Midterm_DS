@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
 
             if (Random.value < bombSpawnChance)
             {
-                Vector3 bombPosition = new Vector3(10.0f, Random.Range(-3.0f, 3.0f), 0); 
+                Vector3 bombPosition = new Vector3(8.0f, Random.Range(-3.0f, 3.0f), 0); 
                 GameObject bomb = Instantiate(bombPrefab, bombPosition, Quaternion.identity);
                 bomb.GetComponent<Bomb>().speed = 10.0f; 
             }

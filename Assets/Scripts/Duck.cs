@@ -55,8 +55,7 @@ public class Duck : MonoBehaviour
         {
             isDead = true;
             anim.SetTrigger("Die");
-            isStartFalling = true;// Makes the duck fall
-            // Optional: Additional effects on duck death, like sounds or score increments
+            isStartFalling = true;
         }
     }
     public void Timeup()

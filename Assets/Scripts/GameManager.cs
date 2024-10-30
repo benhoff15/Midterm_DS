@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,9 +34,18 @@ public class GameManager : MonoBehaviour
     private float roundDuration = 60f;
     private float timeRemaining;
     private bool roundActive = false;
+    public AudioSource gunshotSource;
 
 
     void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "HomeScreen")
+        {
+            return;
+        }
+        InitializeGame();
+    }
+    private void InitializeGame()
     {
         StartRound();
         Instance = this;
@@ -50,6 +59,10 @@ public class GameManager : MonoBehaviour
             UpdateTimer();
         }
         if (Input.GetMouseButtonDown(0))
+        {
+            gunshotSource.Play();
+        }
+        if (Input.GetMouseButtonDown(0))
             totalClicks++;
 
         scoreText.text = score.ToString("000");
@@ -58,18 +71,17 @@ public class GameManager : MonoBehaviour
 
     IEnumerator RunRound()
     {
-        float roundDuration = 60f;  // 60 seconds for each round
-        float spawnInterval = 10f;   // Spawn every 10 seconds
+        float roundDuration = 60f; 
+        float spawnInterval = 10f;  
         float elapsedTime = 0f;
 
         while (elapsedTime < roundDuration)
         {
-            StartCoroutine(CreateDucks(5));  // Spawn 5 ducks every 10 seconds
+            StartCoroutine(CreateDucks(5)); 
             yield return new WaitForSeconds(spawnInterval);
             elapsedTime += spawnInterval;
         }
 
-        // End of round actions (if needed)
         isRoundOver = true;
         Debug.Log("Round Over");
     }
@@ -80,10 +92,8 @@ public class GameManager : MonoBehaviour
     }
     private void UpdateTimer()
     {
-        // Decrease the remaining time
         timeRemaining -= Time.deltaTime;
 
-        // End the round if time is up
         if (timeRemaining <= 0)
         {
             timeRemaining = 0;
@@ -94,24 +104,20 @@ public class GameManager : MonoBehaviour
     {
         if (roundActive)
         {
-            // Set the depth to control the order in layer
             GUI.depth = 5;
 
-            // Define the style for the timer text
             GUIStyle timerStyle = new GUIStyle();
-            timerStyle.fontSize = 50; // Adjust size as needed
-            timerStyle.normal.textColor = Color.white; // Adjust color as needed
+            timerStyle.fontSize = 50; 
+            timerStyle.normal.textColor = Color.white; 
 
             if (electronicHighwayFont != null)
             {
                 timerStyle.font = electronicHighwayFont;
             }
 
-            // Calculate the approximate position for the middle bar (you may need to adjust these values)
-            float xPosition = Screen.width / 2 - 350; // Centered horizontally, with a width offset for text
-            float yPosition = Screen.height - 111; // Adjust to place the text in the middle bar vertically
+            float xPosition = Screen.width / 2 - 350; 
+            float yPosition = Screen.height - 111; 
 
-            // Display the time remaining on the screen in the middle bar
             GUI.Label(new Rect(xPosition, yPosition, 200, 50), "Time Remaining: " + Mathf.Ceil(timeRemaining).ToString(), timerStyle);
         }
     }
@@ -124,19 +130,17 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         for (int i = 0; i < _count; i++)
         {
-            // Spawn a duck at a random spawn point
             Transform spawnpoint = spawnpoints[Random.Range(0, spawnpoints.Length)];
             Instantiate(duckPrefab, spawnpoint.position, Quaternion.identity);
 
-            // Chance to spawn a bomb at the far right with random height
             if (Random.value < bombSpawnChance)
             {
-                Vector3 bombPosition = new Vector3(10.0f, Random.Range(-3.0f, 3.0f), 0); // Far right, random vertical position
+                Vector3 bombPosition = new Vector3(10.0f, Random.Range(-3.0f, 3.0f), 0); 
                 GameObject bomb = Instantiate(bombPrefab, bombPosition, Quaternion.identity);
-                bomb.GetComponent<Bomb>().speed = 10.0f; // Set speed to move leftward, adjust as needed
+                bomb.GetComponent<Bomb>().speed = 10.0f; 
             }
 
-            yield return new WaitForSeconds(0.5f); // Delay between duck spawns
+            yield return new WaitForSeconds(0.5f); 
         }
         StartCoroutine(TimeUp());
     }
@@ -146,30 +150,25 @@ public class GameManager : MonoBehaviour
     {
         foreach (Transform spawnpoint in spawnpoints)
         {
-            // Decide whether to spawn a duck or a rare bomb
             if (Random.value < bombSpawnChance)
             {
-                // Spawn a bomb
                 Instantiate(bombPrefab, spawnpoint.position, Quaternion.identity);
             }
             else
             {
-                // Spawn a duck
                 Instantiate(duckPrefab, spawnpoint.position, Quaternion.identity);
             }
         }
     }
     IEnumerator TimeUp()
     {
-        yield return new WaitForSeconds(60f);  // Wait for 60 seconds instead of 10
+        yield return new WaitForSeconds(60f);  
         Duck[] ducks = FindObjectsOfType<Duck>();
         for (int i = 0; i < ducks.Length; i++)
         {
             ducks[i].Timeup();
         }
-        //bg.color = Color.red;
         yield return new WaitForSeconds(0.25f);
-        //bg.color = blueColor;
         if (!isRoundOver)
             StartCoroutine(RoundOver());
     }
@@ -225,7 +224,6 @@ public class GameManager : MonoBehaviour
     private void EndRound()
     {
         roundActive = false;
-        // Handle end-of-round logic (e.g., show results, reset for the next round)
         Debug.Log("Round over!");
     }
 

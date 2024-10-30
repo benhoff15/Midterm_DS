@@ -38,7 +38,7 @@ public class Duck : MonoBehaviour
                 SetTarget();
             }
             if (activeTime > 0)
-                activeTime-= Time.deltaTime;
+                activeTime -= Time.deltaTime;
 
             UpdateSprite();
         }
@@ -59,10 +59,10 @@ public class Duck : MonoBehaviour
             // Optional: Additional effects on duck death, like sounds or score increments
         }
     }
-public void Timeup()
+    public void Timeup()
     {
         speed *= 2;
-        target = transform.position + new Vector3(0,20,0);
+        target = transform.position + new Vector3(0, 20, 0);
     }
     private void OnMouseDown()
     {
@@ -79,7 +79,7 @@ public void Timeup()
         isStartFalling = true;
         Destroy(gameObject, 3f);
     }
-    
+
     public void UpdateSprite()
     {
         if (transform.position.x - target.x > 0)
@@ -90,13 +90,13 @@ public void Timeup()
         {
             transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
         }
-        
+
         if (Mathf.Abs(transform.position.x - target.x) < 1)
         {
             anim.SetInteger("Fly", 2);
         }
-        else if (Mathf.Abs(transform.position.y - target.y) < 1) 
-            {
+        else if (Mathf.Abs(transform.position.y - target.y) < 1)
+        {
             anim.SetInteger("Fly", 0);
         }
         else

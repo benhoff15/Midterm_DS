@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8108554529099604748}
   - component: {fileID: 1123908074189108264}
   - component: {fileID: 6812118615409059301}
-  - component: {fileID: 7103135889345834863}
   m_Layer: 0
   m_Name: TNT
   m_TagString: Untagged
@@ -142,7 +141,7 @@ Animator:
   m_GameObject: {fileID: 8995752668254262522}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cae7878f9fe289a46b0ea17d86bc61b2, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -153,16 +152,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7103135889345834863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8995752668254262522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2019ca5db4b4694a9c2af2eb3560be2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20

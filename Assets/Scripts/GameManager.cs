@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString("000");
         hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
     }
-   
+
     IEnumerator RunRound()
     {
         float roundDuration = 60f;  // 60 seconds for each round
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
 
             // Define the style for the timer text
             GUIStyle timerStyle = new GUIStyle();
-            timerStyle.fontSize = 22; // Adjust size as needed
+            timerStyle.fontSize = 50; // Adjust size as needed
             timerStyle.normal.textColor = Color.white; // Adjust color as needed
 
             if (electronicHighwayFont != null)
@@ -108,8 +108,8 @@ public class GameManager : MonoBehaviour
             }
 
             // Calculate the approximate position for the middle bar (you may need to adjust these values)
-            float xPosition = Screen.width / 2 - 145; // Centered horizontally, with a width offset for text
-            float yPosition = Screen.height - 44; // Adjust to place the text in the middle bar vertically
+            float xPosition = Screen.width / 2 - 350; // Centered horizontally, with a width offset for text
+            float yPosition = Screen.height - 111; // Adjust to place the text in the middle bar vertically
 
             // Display the time remaining on the screen in the middle bar
             GUI.Label(new Rect(xPosition, yPosition, 200, 50), "Time Remaining: " + Mathf.Ceil(timeRemaining).ToString(), timerStyle);

@@ -10,56 +10,60 @@
 ---
 
 # Required ReadMe Info for ALL MCS1243 Projects
-* **Project**   - 
-* **Your Name** - 
-* **Date**      - 
+Duck Hunt Remastered
+Benjamin Hoffenberg
+10/29/24
 
 <br>
 
 1. **What are the controls to your game? How do we play?**
-
+The only controls is moving the mouse and left click to shoot the gun. After pressing play in the start menu, ducks will fly across the screen and you have to shoot them to gain points within the time window.
 
 
 <br>
 
 2. **What creative additions did you make? How can we find them?**
-
+There are bombs that fly across the screen at a very rare frequency and high speed, because they are really good. If you are able to shoot a bomb, it will insta-kill all ducks on the screen at the moment you hit the bomb. I also added a timer on the bottom of the screen to show how much time is left.
 
 
 <br>
 
 3. **Any assets used that you didn't create yourself?** <br> (art, music, etc. Just tell us where you got it, link it here)
 
-Robot Crush font https://www.dafont.com/robot-crush.font
+Bomb asset https://assetstore.unity.com/packages/2d/gui/gold-mining-game-2d-mine-ui-tilset-263856
+Game music https://assetstore.unity.com/packages/audio/music/world/retro-tuned-musicloop-196206
+Gun shot sound https://assetstore.unity.com/packages/audio/sound-fx/weapons/fog-of-war-gun-sound-fx-free-66100
+All duck hunt assets https://www.spriters-resource.com/custom_edited/duckhuntcustoms/sheet/63915/
 
 <br>
 
 4. **Did you receive help from anyone outside this class?** <br> (list their names and what they helped with)
-
+My dad, helped me with troubleshooting and some idea brainstorming, the concepts and the order I should create them in.
 
 
 <br>
 
 5. **Did you get help from any AI Code Assistants?** <br> (Tell us which .cs file to look in for the citation and describe what you learned)
-
+I used Chat GPT for troubleshooting, if I was trying to debug but wasn't getting the result I wanted, I would ask Chat
 
 
 <br>
 
 6. **Did you get help from any online websites, videos, or tutorials?** <br> (link them here)
-
+https://www.youtube.com/watch?time_continue=572&v=y1Ly91N2BoU&embeds_referring_euri=https%3A%2F%2Fvideo.search.yahoo.com%2F&embeds_referring_origin=https%3A%2F%2Fvideo.search.yahoo.com&source_ve_path=MjM4NTE
+I watched this video at the beginning of my process just to figure out the order I should create items and just how to get started
 
 
 <br>
 
 7. **What trouble did you have with this project?**
-
+I had a lot of trouble with multiple things in this project. I was having trouble with the score being accurate, the bombs killing all the ducks on the screen, and there were a few animations I had to scrap because after hours of trying to make it work, it still wouldn't. There were a lot more smaller instances of me having trouble but these were the most impactful ones.
 
 
 <br>
 
 8. **Is there anything else we should know?**
-
+I hope you enjoy!
 
 
 
@@ -120,10 +124,11 @@ When you're ready to make this README your own, just edit this file and use the 
 Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
 
 ## Name
-Choose a self-explaining name for your project.
+Benjamin Hoffenberg
 
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+In my game, once you start game, a short animation of a dog jumping into a bush will start the actual game. Then ducks will fly across your screen and you must shoot them to gain points. There will be bombs that kill all ducks that are active. There will be a score tracker, accuracy, and time remaining
+
 
 ## Badges
 On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
